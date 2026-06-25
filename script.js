@@ -153,11 +153,13 @@ function playStartSound() {
 }
 
 function playVictorySound() {
-  playTone(523, 0.15, "triangle", 0.09, 0);
-  playTone(659, 0.15, "triangle", 0.09, 0.16);
-  playTone(784, 0.18, "triangle", 0.09, 0.32);
-  playTone(1046, 0.25, "triangle", 0.1, 0.52);
-  playTone(1318, 0.35, "triangle", 0.1, 0.8);
+  playTone(659, 0.12, "triangle", 0.12, 0);
+  playTone(784, 0.12, "triangle", 0.12, 0.12);
+  playTone(988, 0.14, "triangle", 0.13, 0.24);
+  playTone(1318, 0.18, "triangle", 0.14, 0.38);
+  playTone(1568, 0.28, "triangle", 0.15, 0.6);
+  playTone(1318, 0.18, "triangle", 0.13, 0.9);
+  playTone(1568, 0.35, "triangle", 0.15, 1.08);
 }
 
 function playWrongSound() {
@@ -166,12 +168,12 @@ function playWrongSound() {
 }
 
 function playFinalWinSound() {
-  playTone(523, 0.15, "triangle", 0.09, 0);
-  playTone(659, 0.15, "triangle", 0.09, 0.16);
-  playTone(784, 0.15, "triangle", 0.09, 0.32);
-  playTone(1046, 0.2, "triangle", 0.1, 0.5);
-  playTone(1318, 0.2, "triangle", 0.1, 0.75);
-  playTone(1568, 0.45, "triangle", 0.11, 1.0);
+  playTone(523, 0.15, "triangle", 0.1, 0);
+  playTone(659, 0.15, "triangle", 0.1, 0.16);
+  playTone(784, 0.15, "triangle", 0.1, 0.32);
+  playTone(1046, 0.2, "triangle", 0.12, 0.5);
+  playTone(1318, 0.2, "triangle", 0.12, 0.75);
+  playTone(1568, 0.45, "triangle", 0.14, 1.0);
 }
 
 function startGame() {
@@ -236,7 +238,7 @@ function checkAnswer(selectedIndex) {
 
     showPopup(
       "🎉 Correct Answer!",
-      `${q.explanation}\n\n🏆 You won: ${scores[currentQuestion]}\n\nAI Feedback: Great job! You are ready for the next level.`,
+      `${q.explanation}\n\n🏆 You won: ${scores[currentQuestion]}`,
       currentQuestion === questions.length - 1 ? finishWinner : nextQuestion
     );
   } else {
@@ -244,7 +246,7 @@ function checkAnswer(selectedIndex) {
 
     showPopup(
       "❌ Try Again Next Time",
-      `The correct answer is ${q.answers[q.correct]}.\n\n${q.explanation}\n\nAI Feedback: Review this topic and try again.`,
+      `The correct answer is ${q.answers[q.correct]}.\n\n${q.explanation}`,
       () => finishGame()
     );
   }
